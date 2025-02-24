@@ -1,7 +1,7 @@
--- Macro for selecting most recent ID and extraction column
--- Two flavours
--- Extract only on latest ID if there is a full copy. 
--- Combination of ID where timestamp is greater
+-- Macro for selecting most recent ID based on extraction column
+-- filter_id_latest
+-- Extract only on latest ID if there are duplicates for the same ID
+
 {% macro id_on_latest(id, extraction, table) %}
     select {{ id }} as unique_id, max({{ extraction }}) as latest_extraction_at
     from {{ table }}
